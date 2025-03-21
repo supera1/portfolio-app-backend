@@ -6,9 +6,13 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-// CORS Configuration - Update to allow your frontend domain in production
+// CORS Configuration
 app.use(cors({
-  origin: ['http://localhost:5500', 'https://yourusername.github.io'],
+  origin: [
+    'http://localhost:5500', 
+    'https://supera1.github.io',
+    process.env.ALLOWED_ORIGINS
+  ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
